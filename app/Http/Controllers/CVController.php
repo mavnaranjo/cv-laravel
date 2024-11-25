@@ -24,6 +24,8 @@ class CVController extends Controller
 
         $data['me']->birthdate = new Carbon($data['me']->birthdate);
 
+        $data['me']->image = $CV_API . $data['me']->image;
+
         foreach (['jobs', 'studies'] as $key) {
             foreach ($data[$key] as $element) {
                 $element->dates->from = new Carbon($element->dates->from, );
