@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Config;
 use Carbon\Carbon;
 
 class CVController extends Controller
 {
     public function __invoke(Request $request, string $format)
     {
-        $CV_API = config('cv-api.url', 'http://localhost:3000/');
+        $CV_API = Config::get('services.cv-api.url');
 
         $data = [
             'me' => Http::get($CV_API . 'me')->object(),
