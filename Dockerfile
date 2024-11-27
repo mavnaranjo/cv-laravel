@@ -8,6 +8,7 @@ COPY ./ ./
 RUN npm run build
 
 FROM php:8.2-fpm
+WORKDIR /var/www
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -31,21 +32,17 @@ RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
 RUN docker-php-ext-configure gd --with-external-gd
 RUN docker-php-ext-install gd
 
-COPY composer.lock composer.json /var/www/
-
-WORKDIR /var/www
-
 RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
-COPY --chown=www:www ./ /var/www/
+USER www
 
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
+
+COPY --chown=www:www ./ ./
 RUN composer install
 
-COPY --from=nodebuilder --chown=www:www /usr/src/app/public/build/ ./public/build/
-
-USER www
+COPY --from=nodebuilder --chown=www:www /usr/src/app/public/build/ /var/www/public/build/
 
 EXPOSE 9000
 CMD ["php-fpm"]

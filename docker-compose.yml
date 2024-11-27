@@ -1,9 +1,7 @@
 version: '3'
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     image: cv-laravel_php
     container_name: cv-laravel_php
     restart: unless-stopped
@@ -11,9 +9,9 @@ services:
     environment:
       SERVICE_NAME: app
       SERVICE_TAGS: dev
-    working_dir: /var/www
+#    working_dir: /var/www
     volumes:
-      - ./:/var/www
+#      - ./:/var/www
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - cv-api
