@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 
-COPY . .
+COPY ./ ./
 RUN npm run build
 
 FROM php:8.2-fpm
@@ -38,12 +38,12 @@ WORKDIR /var/www
 RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
-COPY --chown=www:www . /var/www
+COPY --chown=www:www ./ /var/www/
 
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 RUN composer install
 
-COPY --from=nodebuilder --chown=www:www /usr/src/app/public/build ./public/build
+COPY --from=nodebuilder --chown=www:www /usr/src/app/public/build/ ./public/build/
 
 USER www
 
