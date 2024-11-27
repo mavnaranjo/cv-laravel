@@ -11,7 +11,7 @@ services:
       SERVICE_TAGS: dev
 #    working_dir: /var/www
     volumes:
-#      - ./:/var/www
+      - www-data:/var/www
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - cv-api
@@ -24,7 +24,7 @@ services:
 #      - "8000:8989"
       - "8000:80"
     volumes:
-      - ./:/var/www
+      - www-data:/var/www
       - ./nginx/:/etc/nginx/conf.d/
     networks:
       - cv-api
@@ -32,3 +32,5 @@ networks:
   cv-api:
     external: true
     name: cv-api_default
+volumes:
+  www-data:
