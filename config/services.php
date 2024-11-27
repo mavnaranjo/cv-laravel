@@ -36,6 +36,9 @@ return [
     ],
 
     'cv-api' => [
-        'url' => env('CV_API_URL', 'http://localhost:3000/'),
+        'url' => [
+            'internal' => env('CV_API_INTERNAL_URL', 'http://localhost:3000/'),
+            'external' => env('CV_API_EXTERNAL_URL', 'http://localhost:3000/'),
+        ],
     ],
 ];

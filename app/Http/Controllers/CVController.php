@@ -12,19 +12,20 @@ class CVController extends Controller
 {
     public function __invoke(Request $request, string $format)
     {
-        $CV_API = Config::get('services.cv-api.url');
+        $CV_INTERNAL_API = Config::get('services.cv-api.url.internal');
+        $CV_EXTERNAL_API = Config::get('services.cv-api.url.external');
 
         $data = [
-            'me' => Http::get($CV_API . 'me')->object(),
-            'jobs' => Http::get($CV_API . 'jobs')->object(),
-            'skills' => Http::get($CV_API . 'skills')->object(),
-            'languages' => Http::get($CV_API . 'languages')->object(),
-            'studies' => Http::get($CV_API . 'studies')->object()
+            'me' => Http::get($CV_INTERNAL_API . 'me')->object(),
+            'jobs' => Http::get($CV_INTERNAL_API . 'jobs')->object(),
+            'skills' => Http::get($CV_INTERNAL_API . 'skills')->object(),
+            'languages' => Http::get($CV_INTERNAL_API . 'languages')->object(),
+            'studies' => Http::get($CV_INTERNAL_API . 'studies')->object()
         ];
 
         $data['me']->birthdate = new Carbon($data['me']->birthdate);
 
-        $data['me']->image = $CV_API . $data['me']->image;
+        $data['me']->image = $CV_EXTERNAL_API . $data['me']->image;
 
         foreach (['jobs', 'studies'] as $key) {
             foreach ($data[$key] as $element) {
