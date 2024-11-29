@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* vertical line with dots per section */
-main > section > :not(:first-child) {
+main > section > article:not(:first-child) {
     margin-left: 8px;
     padding-left: 16px;
     box-sizing: border-box;
@@ -11,11 +11,11 @@ main > section > :not(:first-child) {
     position: relative;
 }
 
-main > section > :last-child {
+main > section > article:last-child {
     box-shadow: -14px 4px 0px -12px black;
 }
 
-main > section > :not(:first-child)::before {
+main > section > article:not(:first-child)::before {
     position: absolute;
     top: -14px;
     left: -9px;

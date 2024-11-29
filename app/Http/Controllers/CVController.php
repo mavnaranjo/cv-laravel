@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Config;
 use Carbon\Carbon;
 
+use Spatie\LaravelPdf\Facades\Pdf;
+
 class CVController extends Controller
 {
     public function __invoke(Request $request, string $format)
@@ -39,7 +41,12 @@ class CVController extends Controller
 
         switch ($format) {
             case 'web':
-                $view = View::make('cv', $data);
+                $view = View::make('web/cv', $data);
+                break;
+            case 'pdf':
+                $view = Pdf::view('pdf/cv', $data)
+                    ->format('a3')
+                    ->name('cv.pdf');
                 break;
             default:
                 throw new \InvalidArgumentException('format not supported');
