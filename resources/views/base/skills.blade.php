@@ -1,5 +1,5 @@
 <section class="mb-8">
-    <h2 class="text-2xl uppercase mb-2 before:mr-2 after:ml-2 before:content-['∘'] after:content-['∘']">Skills</h2>
+    <h2 class="text-2xl font-condensed uppercase mb-2 before:mr-2 after:ml-2 before:content-['∘'] after:content-['∘']">Skills</h2>
     @foreach ($skills as $skill)
         <div class="mb-4">
             <p class="text-l mb-1">{{ $skill->name }}</p> {{-- @TODO: years of experience? --}}

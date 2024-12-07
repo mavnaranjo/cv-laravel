@@ -8,7 +8,7 @@
             @pageBreak
         @endif
         <article class="{{ $loop->last ? 'mb-8' : 'pb-8' }} {{ $loop->index == 2 ? 'mt-16' : '' }}">
-            <h3 class="text-xl">
+            <h3 class="text-xl font-condensed">
                 {{ $job->position }}
                 at {{ $job->company }},
                 {{ $job->location }}

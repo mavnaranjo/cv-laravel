@@ -1,5 +1,5 @@
 <section class="mb-8">
-    <h2 class="text-2xl uppercase mb-2">
+    <h2 class="text-2xl font-condensed uppercase mb-2">
         <x-fas-user class="inline h-4 align-baseline"/>
         Profile
     </h2>

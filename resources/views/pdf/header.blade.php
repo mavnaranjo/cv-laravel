@@ -1,6 +1,6 @@
 <header class="col-span-full flex flex-col items-center justify-center gap-4 uppercase text-center">
-    <img class="w-32 m-4" src="{{ $me->image }}" alt="{{ $me->image }}">
-    <h1 class="text-4xl font-light">{{ $me->name }} {{ $me->surname }}</h1>
+    <img class="w-24 m-4" src="{{ $me->image }}" alt="{{ $me->image }}">
+    <h1 class="text-5xl font-thin font-ultra-condensed">{{ $me->name }} {{ $me->surname }}</h1>
     <div class="flex flex-col gap-2 md:flex-row md:gap-2 align-middle">
         <span>{{ $me->title }}</span>
         <span class="flex items-center justify-center content-center gap-2">

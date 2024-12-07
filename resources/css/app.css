@@ -1,6 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .font-condensed {
+        font-stretch: condensed;
+    }
+    .font-ultra-condensed {
+        font-stretch: ultra-condensed;
+    }
+}
 
 /* vertical line with dots per section */
 main > section > article:not(:first-child) {

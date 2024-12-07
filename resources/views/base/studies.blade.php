@@ -1,5 +1,5 @@
 <section class="mb-8">
-    <h2 class="text-2xl uppercase mb-2 -ml-[2px]">
+    <h2 class="text-2xl font-condensed uppercase mb-2 -ml-[2px]">
         <x-fas-graduation-cap class="inline h-4 align-baseline"/>
         Education
     </h2>

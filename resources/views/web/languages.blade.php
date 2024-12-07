@@ -1,5 +1,5 @@
 <section class="mb-8">
-    <h2 class="text-2xl uppercase mb-2 before:mr-2 after:ml-2 before:content-['∘'] after:content-['∘']">Languages</h2>
+    <h2 class="text-2xl font-condensed uppercase mb-2 before:mr-2 after:ml-2 before:content-['∘'] after:content-['∘']">Languages</h2>
     @foreach ($languages as $language)
         <div class="mb-4">
             <h3 class="text-xl mb-1">{{ $language->name }}: {{ $language->level->name}}</h3>

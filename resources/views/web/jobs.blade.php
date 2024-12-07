@@ -1,11 +1,11 @@
 <section class="mb-8">
-    <h2 class="text-2xl uppercase mb-2">
+    <h2 class="text-2xl uppercase mb-2 font-condensed">
         <x-fas-briefcase class="inline h-4 align-baseline"/>
         Employment history
     </h2>
     @foreach ($jobs as $job)
         <article class="{{ $loop->last ? 'mb-8' : 'pb-8' }}">
-            <h3 class="text-xl">
+            <h3 class="text-xl font-condensed">
                 {{ $job->position }}
                 at {{ $job->company }},
                 {{ $job->location }}

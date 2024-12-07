@@ -45,7 +45,7 @@ class CVController extends Controller
                 break;
             case 'pdf':
                 $view = Pdf::view('pdf/cv', $data)
-                    ->format('a3')
+                    ->format('a4')
                     ->name('cv.pdf');
                 break;
             default:
